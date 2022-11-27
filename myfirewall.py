@@ -9,7 +9,7 @@ import os
 import csv
 
 log = core.getLogger()
-policyFile = "/home/mininet/pox/pox/misc/firepo.csv"
+policyFile = "/home/mininet/pox/pox/misc/firepollicies.csv"
 
 
 class Firewall (EventMixin):
@@ -21,10 +21,6 @@ class Firewall (EventMixin):
         self.firewall = {}
 
     def sendRule (self, src, dst, duration = 0):
-        """
-        Drops this packet and optionally installs a flow to continue
-        dropping similar ones for a while
-        """
         if not isinstance(duration, tuple):
             duration = (duration,duration)
         msg = of.ofp_flow_mod()
@@ -55,7 +51,7 @@ class Firewall (EventMixin):
             log.error("Cannot find in rule drop src %s - dst %s", src, dst)
 
     def _handle_ConnectionUp (self, event):
-        ''' Add your logic here ... '''
+        ''' Add  logic here ... '''
         self.connection = event.connection
 
         ifile  = open(policyFile, "rb")
