@@ -79,7 +79,7 @@ Dans une nouvelle fenêtre de terminal, démarrez le contrôleur POX avec le mod
 
 ```bash
 cd pox
-./pox.py log.level --DEBUG openflow.of_01 forwarding.l2_learning misc.myfirewall
+./pox.py misc.myfirewall
 ```
 
 Le contrôleur POX appliquera automatiquement les règles définies dans le fichier `firewallpolicies.csv` et installera les flux sur le commutateur OpenFlow.
